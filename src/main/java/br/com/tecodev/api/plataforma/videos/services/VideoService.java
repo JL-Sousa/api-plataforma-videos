@@ -30,4 +30,13 @@ public class VideoService {
         Video entity = obj.orElseThrow(() -> new EntityNotFoundException("Não encontrado."));
         return new VideoDto(entity);
     }
+
+    public VideoDto insert(VideoDto dto) {
+        Video entity = new Video();
+        entity.setTitulo(dto.getTitulo());
+        entity.setDescricao(dto.getDescricao());
+        entity.setUrl(dto.getUrl());
+        entity = repository.save(entity);
+        return new VideoDto(entity);
+    }
 }
