@@ -2,15 +2,15 @@
 Este projeto e um challenge da [alura](https://www.alura.com.br/) para implementar uma api de videos.
 
 
-### Tecnologias:
+### Tecnologias: 🔥
 [Spring Boot](https://spring.io/).
 
-* Crud completo
+* Crud completo 📑
 
-1. Create
+1. Create 📃
 2. Read
 3. Update
-4. Delete
+4. Delete ❌
 
 
 

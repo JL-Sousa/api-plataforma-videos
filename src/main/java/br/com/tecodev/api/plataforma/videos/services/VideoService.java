@@ -3,8 +3,11 @@ package br.com.tecodev.api.plataforma.videos.services;
 import br.com.tecodev.api.plataforma.videos.dto.VideoDto;
 import br.com.tecodev.api.plataforma.videos.entities.Video;
 import br.com.tecodev.api.plataforma.videos.repository.VideoRepository;
+import br.com.tecodev.api.plataforma.videos.services.exceptions.DatabaseException;
 import br.com.tecodev.api.plataforma.videos.services.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -56,5 +59,17 @@ public class VideoService {
             throw new ResourceNotFoundException("Id nao encontrado " + id);
         }
 
+    }
+
+    public void delete(Long id) {
+        try {
+            repository.deleteById(id);
+        }
+        catch(EmptyResultDataAccessException e) {
+            throw new ResourceNotFoundException("Id not found " + id);
+        }
+        catch(DataIntegrityViolationException e) {
+            throw new DatabaseException("Integrity violation");
+        }
     }
 }
