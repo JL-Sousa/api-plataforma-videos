@@ -2,6 +2,8 @@ package br.com.tecodev.api.plataforma.videos.dto;
 
 import br.com.tecodev.api.plataforma.videos.entities.Video;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import java.io.Serial;
 import java.io.Serializable;
 
@@ -10,8 +12,14 @@ public class VideoDto implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private Long id;
+    @NotBlank(message = "nao pode ser um espaco vazio!")
+    @NotEmpty(message = "Campo obrigatorio")
     private String titulo;
+    @NotBlank(message = "nao pode ser um espaco vazio!")
+    @NotEmpty(message = "Campo obrigatorio")
     private String descricao;
+    @NotBlank(message = "nao pode ser um espaco vazio!")
+    @NotEmpty(message = "Campo obrigatorio")
     private String url;
 
     public VideoDto() {}

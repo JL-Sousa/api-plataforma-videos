@@ -9,7 +9,7 @@ Este projeto e um challenge da [alura](https://www.alura.com.br/) para implement
 
 1. Create 📃
 2. Read
-3. Update
+3. Update 
 4. Delete ❌
 
 
